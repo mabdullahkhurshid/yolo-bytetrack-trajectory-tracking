@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Models and media (large files)
+*.pt
+*.mp4
+*.avi
+*.mov
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
