@@ -51,14 +51,14 @@ python trajectory.py
 
 All settings are constants at the top of `trajectory.py`:
 
-| Setting             | Default      | Description                                |
-| ------------------- | ------------ | ------------------------------------------ |
-| `MODEL_PATH`        | `yolo26n.pt` | YOLO model weights file                    |
-| `VIDEO_PATH`        | `01.mp4`     | Input video file                           |
-| `TRAJECTORY_LENGTH` | `100`        | Number of recent positions kept per object |
-| `LINE_THICKNESS`    | `3`          | Thickness of trajectory lines (px)         |
-| `BOX_THICKNESS`     | `2`          | Thickness of bounding boxes (px)           |
-| `FONT_SCALE`        | `0.7`        | Label text size                            |
+| Setting | Default | Description |
+| --- | --- | --- |
+| `MODEL_PATH` | `yolo26n.pt` | YOLO model weights file |
+| `VIDEO_PATH` | `01.mp4` | Input video file |
+| `TRAJECTORY_LENGTH` | `100` | Number of recent positions kept per object |
+| `LINE_THICKNESS` | `3` | Thickness of trajectory lines (px) |
+| `BOX_THICKNESS` | `2` | Thickness of bounding boxes (px) |
+| `FONT_SCALE` | `0.7` | Label text size |
 
 To use a different model, set `MODEL_PATH` to any compatible Ultralytics weights file (for example, a larger variant for higher accuracy or a custom-trained model).
 
@@ -88,7 +88,7 @@ To use a different model, set `MODEL_PATH` to any compatible Ultralytics weights
 
 ## Author
 
-[M. Abdullah Khurshid](https://github.com/mabdullahkhurshid)
+[Muhammad Abdullah](https://github.com/mabdullahkhurshid)
 
 ## Acknowledgements
 
