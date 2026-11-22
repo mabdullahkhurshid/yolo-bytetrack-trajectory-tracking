@@ -4,9 +4,11 @@ Real-time multi-object detection, tracking, and trajectory visualization in Pyth
 
 Each detected object receives a persistent track ID, a unique color, and a trailing path that shows where it has moved over the most recent frames.
 
-![YOLO ByteTrack trajectory tracking demo](demo.gif)
+## Demo
 
-**Keywords:** object tracking, multi-object tracking (MOT), trajectory visualization, YOLO, Ultralytics, ByteTrack, OpenCV, computer vision, object detection, Python, video analytics
+https://github.com/user-attachments/assets/a4d2bbdb-94c7-4d6c-ae49-2c60e26e92c2
+
+**Keywords:** object tracking, multi-object tracking (MOT), trajectory visualization, YOLO, Ultralytics, ByteTrack, OpenCV, computer vision, object detection, vehicle tracking, pedestrian tracking, Python, video analytics
 
 ## Features
 
@@ -16,7 +18,6 @@ Each detected object receives a persistent track ID, a unique color, and a trail
 - Bounding boxes, class labels, track IDs, and center points drawn on each frame
 - Consistent random color assigned to each track ID
 - Live preview window; press `q` to quit
-- Saves the annotated video to `output.mp4`
 
 ## Requirements
 
@@ -37,7 +38,7 @@ Ultralytics downloads the model weights automatically on first run if they are n
 
 ## Usage
 
-1. Place your input video in the project folder (the default expected name is `01.mp4`), or change `VIDEO_PATH` in the script.
+1. Place your input video in the project folder and set `VIDEO_PATH` in `trajectory.py` to its file name (the default is `03.mp4`).
 2. Run:
 
 ```bash
@@ -45,7 +46,6 @@ python trajectory.py
 ```
 
 3. A window titled **Trajectory Tracking** opens. Press `q` to stop.
-4. The annotated video is saved as `output.mp4` in the project folder.
 
 ## Configuration
 
@@ -54,7 +54,7 @@ All settings are constants at the top of `trajectory.py`:
 | Setting | Default | Description |
 | --- | --- | --- |
 | `MODEL_PATH` | `yolo26n.pt` | YOLO model weights file |
-| `VIDEO_PATH` | `01.mp4` | Input video file |
+| `VIDEO_PATH` | `03.mp4` | Input video file |
 | `TRAJECTORY_LENGTH` | `100` | Number of recent positions kept per object |
 | `LINE_THICKNESS` | `3` | Thickness of trajectory lines (px) |
 | `BOX_THICKNESS` | `2` | Thickness of bounding boxes (px) |
@@ -68,7 +68,7 @@ To use a different model, set `MODEL_PATH` to any compatible Ultralytics weights
 2. `model.track()` runs YOLO detection and ByteTrack association with `persist=True`, so IDs stay consistent across frames.
 3. The center point of every tracked bounding box is appended to a per-ID `deque` capped at `TRAJECTORY_LENGTH`.
 4. Consecutive stored points are connected with lines to draw each object's path.
-5. Each annotated frame is displayed and written to `output.mp4` with `cv2.VideoWriter`.
+5. Each annotated frame is shown in a live window.
 
 ## Project Structure
 
@@ -76,14 +76,13 @@ To use a different model, set `MODEL_PATH` to any compatible Ultralytics weights
 .
 ├── trajectory.py      # Detection, tracking, and visualization script
 ├── requirements.txt   # Python dependencies
-├── demo.gif           # Example output
 └── README.md
 ```
 
 ## Troubleshooting
 
 - **"Unable to open video."**: Check that `VIDEO_PATH` points to an existing, readable video file.
-- **No window appears on a headless server**: `cv2.imshow` requires a display. Run on a machine with a GUI, or replace it with `cv2.VideoWriter` to save the output to a file.
+- **No window appears on a headless server**: `cv2.imshow` requires a display. Run on a machine with a GUI.
 - **Slow playback**: Use a smaller model or run on a machine with a supported GPU.
 
 ## Author
